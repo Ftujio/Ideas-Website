@@ -1,0 +1,26 @@
+#top_nav ul{
+	display: block;
+	background-color: #8c8c8c;
+	overflow: hidden;
+}
+#top_nav ul li{
+	display: inline-block;
+	height: 30px;
+	min-width: 70px;
+	line-height: 30px;
+	float: left;
+}
+#top_nav ul li a{
+	padding: 0px 10px;
+	display: block;
+	font-size: 20px;
+	text-align: center;
+}
+
+#top_nav ul li a:hover{
+	background-color: #a6a6a6;
+}
+
+.right{
+	float: right;
+}
