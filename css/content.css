@@ -21,6 +21,10 @@
 	text-indent: 30px;
 }
 
+.post img{
+	width: 40%;
+}
+
 .bold{
 	font-weight: bold;
 }
