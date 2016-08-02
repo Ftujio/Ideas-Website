@@ -27,6 +27,10 @@
 .link{
 	color: #3385ff;
 }
+.link:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
 .top{
 	position: relative;
 	top: -8px;
