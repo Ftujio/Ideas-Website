@@ -1,0 +1,24 @@
+#main_content{
+	margin-top: 10px;
+	display: block;
+	min-height: 800px;
+	background-color: #f2f2f2;
+	padding: 10px;
+}
+
+.post{
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+	border: 2px solid red;
+}
+.post_title{
+	display: block;
+	font-size: 27px;
+	border: 2px solid blue;
+}
+.post_text{
+	display: block;
+	margin: 5px 0px;
+	text-indent: 30px;
+}
