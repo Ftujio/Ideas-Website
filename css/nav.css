@@ -5,15 +5,16 @@
 }
 #top_nav ul li{
 	display: inline-block;
-	height: 30px;
+	height: 40px;
+	line-height: 35px;
 	min-width: 70px;
-	line-height: 30px;
 	float: left;
 }
 #top_nav ul li a{
-	padding: 0px 10px;
 	display: block;
-	font-size: 20px;
+	height: 100%;
+	padding: 0px 15px;
+	font-size: 18px;
 	text-align: center;
 }
 
