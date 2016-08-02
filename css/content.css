@@ -8,17 +8,27 @@
 
 .post{
 	display: block;
-	width: 100%;
 	margin-bottom: 10px;
-	border: 2px solid red;
+	word-wrap: break-word;
 }
 .post_title{
 	display: block;
 	font-size: 27px;
-	border: 2px solid blue;
 }
 .post_text{
 	display: block;
 	margin: 5px 0px;
 	text-indent: 30px;
+}
+
+.bold{
+	font-weight: bold;
+}
+.link{
+	color: #3385ff;
+}
+.top{
+	position: relative;
+	top: -8px;
+	font-size: 12px;
 }
