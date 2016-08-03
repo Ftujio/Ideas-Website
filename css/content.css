@@ -1,9 +1,10 @@
 #main_content{
-	margin-top: 10px;
+	margin: 10px 0px;
 	display: block;
 	min-height: 800px;
 	background-color: #f2f2f2;
 	padding: 10px;
+	box-shadow: 5px 5px 3px #cccccc;
 }
 
 .post{
@@ -12,15 +13,18 @@
 	word-wrap: break-word;
 }
 .post_title{
-	display: block;
-	font-size: 27px;
+	font-size: 35px;
+	text-indent: 10px;
 }
 .post_text{
 	display: block;
 	margin: 5px 0px;
 	text-indent: 30px;
 }
-
+.post_small_heading{
+	font-size: 21px;
+	text-indent: 10px;
+}
 .post img{
 	width: 40%;
 }
