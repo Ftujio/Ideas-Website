@@ -1,16 +1,14 @@
 #top_nav ul{
-	display: block;
 	background-color: #8c8c8c;
 	overflow: hidden;
 }
 #top_nav ul li{
-	display: inline-block;
 	height: 40px;
 	line-height: 35px;
 	min-width: 70px;
 	float: left;
 }
-#top_nav ul li a{
+#top_nav li a{
 	display: block;
 	height: 100%;
 	padding: 0px 15px;
@@ -18,10 +16,30 @@
 	text-align: center;
 }
 
-#top_nav ul li a:hover{
+#top_nav li a:hover{
 	background-color: #a6a6a6;
 }
 
 .right{
 	float: right;
+}
+
+.dropdown{
+	display: inline-block;
+}
+.dropdown_content{
+	display: none;
+	position: absolute;
+	min-width: 70px;
+}
+.dropdown_content a{
+	display: block;
+	background-color: #8c8c8c;
+}
+.dropdown_content a:hover{
+	
+}
+
+.dropdown:hover .dropdown_content {
+    display: block;
 }
