@@ -42,19 +42,36 @@
 .heading{
 	display: block;
 	overflow: hidden;
-	height: 48px;
-	background-color: lightblue;
-}
-.post_title{
-	display: inline-block;
-	font-size: 40px;
-	margin-left: 5px;
-	background-color: lightgreen;
+	height: 85px;
 }
 .post_img_avatar{
 	display: inline-block;
 	height: 100%;
 	float: left;
+}
+.post_title_wrap{
+	display: inline-block;
+	height: 100%;
+	width: 250px;
+}
+.post_title{
+	display: block;
+	font-size: 40px;
+	line-height: 0.8;
+	height: 50%;
+	margin-left: 5px;
+}
+.post_author{
+	position: relative;
+	margin-left: 5px;
+	height: 50%;
+	vertical-align: bottom;
+	font-size: 19px;
+	font-style: italic;
+}
+.post_author p{
+	position: absolute;
+	bottom: 0;
 }
 
 .bold{
