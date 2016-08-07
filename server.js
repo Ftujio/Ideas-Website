@@ -10,7 +10,7 @@ function noPageErr(response){
 function onRequest(request, response){
 	if(request.method == 'GET' && request.url == '/'){
 		response.writeHead(200, {"Context-Type": "text/html"});
-		fs.createReadStream("../index.html").pipe(response);
+		fs.createReadStream("./index.html").pipe(response);
 	} else {
 		noPageErr(response);
 	}
