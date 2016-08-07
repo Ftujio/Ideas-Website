@@ -1,6 +1,7 @@
 {
   "name": "web-app",
   "version": "1.0.0",
+  "private": true,
   "description": "Code for my website",
   "main": "server.js",
   "scripts": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Ftujio/Ideas-Website/issues"
   },
-  "homepage": "https://github.com/Ftujio/Ideas-Website#readme"
+  "homepage": "https://github.com/Ftujio/Ideas-Website#readme",
+  "dependencies": {
+    "fs": "0.0.2"
+  }
 }
