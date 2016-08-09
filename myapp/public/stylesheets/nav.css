@@ -37,10 +37,6 @@
 	display: block;
 	background-color: #8c8c8c;
 }
-.dropdown_content a:hover{
-	
-}
-
 .dropdown:hover .dropdown_content {
     display: block;
 }

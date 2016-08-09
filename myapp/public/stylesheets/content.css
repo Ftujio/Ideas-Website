@@ -62,7 +62,6 @@
 	margin-left: 5px;
 }
 .post_author{
-	position: relative;
 	margin-left: 5px;
 	height: 50%;
 	vertical-align: bottom;
@@ -70,8 +69,7 @@
 	font-style: italic;
 }
 .post_author p{
-	position: absolute;
-	bottom: 0;
+	
 }
 
 .bold{
