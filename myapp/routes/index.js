@@ -5,12 +5,8 @@ var app = express();
 app.use(express.static('public'));
 app.use('/static', express.static(__dirname + '/public'));
 
-
-var c = require('nav');
-
 /* GET home page. */
 router.use(function(req, res, next	){
-	console.log(c.res);
 	
 	next();
 });
