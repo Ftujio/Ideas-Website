@@ -6,14 +6,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./routes/users');	
 var login = require('./routes/login');
 var register = require('./routes/register');
 var browse = require('./routes/browse');
-var games = require('./routes/browse/games');
-var movies = require('./routes/browse/movies');
-var books = require('./routes/browse/books');
-var uncategorised = require('./routes/browse/uncategorised');
+var games = require('./routes/games');
+var movies = require('./routes/movies');
+var books = require('./routes/books');
+var uncategorised = require('./routes/uncategorised');
 
 var app = express();
 
