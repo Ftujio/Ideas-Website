@@ -35,12 +35,11 @@ function find(query, collection, callback, index){
 		console("Database not initialized!");
 		return null;
 	}
+	var out = [];
 
 	var collection = client.collection(collection);
 	var element = collection.find(query);
 	element.each(function(err, doc){
-		var out = [];
-
 		if(err){
 			console.log('each: ' + err);
 		} else if(doc != null){
