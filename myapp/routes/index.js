@@ -1,13 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var database = require('../database');
+var db = require('../database');
 
-database.connect_to_db();
+db.connect_to_db();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	database.find({"name": "Svetlin Yordanov"}, 'users', function(user){
+	db.insert({"name": "Duudi McGoogly", "email": "duudimcguugly@hotmail.com", "password": "goolydoodly64", "account": "user"}, 'users');
+	db.find({"name": "Duudi McGoogly"}, 'users', function(user){
+		console.log(user.name);
 		console.log(user.email);
+		console.log(user.password);
+		console.log(user.account);
 	}, 0);
 });
 

@@ -50,6 +50,7 @@ function find(query, collection, callback, index){
 			if(index < out.length){
 				callback(out[index]);
 			} else {
+				console.log("error: index out of bounds error");
 				return null;
 			}
 		}
