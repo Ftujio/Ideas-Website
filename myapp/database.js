@@ -30,7 +30,7 @@ function insert(data, collection, callback){
 	});
 }
 
-function find(query, collection, callback, index){
+function find(query, collection, callback){
 	if(!client){
 		console("Database not initialized!");
 		return null;
@@ -46,12 +46,7 @@ function find(query, collection, callback, index){
 			out.push(doc);
 		}
 		if(callback){
-			if(index < out.length){
-				callback(out[index]);
-			} else {
-				console.log("error: index out of bounds error");
-				return null;
-			}
+			callback(out[0]);
 		}
 	}, function(){
 		client.close();
