@@ -6,7 +6,6 @@ db.connect_to_db();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	db.insert({"name": "Duudi McGoogly", "email": "duudimcguugly@hotmail.com", "password": "goolydoodly64", "account": "user"}, 'users');
 	db.find({"name": "Duudi McGoogly"}, 'users', function(user){
 		console.log(user.name);
 		console.log(user.email);
