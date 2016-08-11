@@ -36,8 +36,12 @@ function find(query, collection, callback){
 		return null;
 	}
 	var out = [];
+	var c;
 
 	var collection = client.collection(collection);
+	collection.count(function(err, count){
+		c = count;
+	});
 	var element = collection.find(query);
 	element.each(function(err, doc){
 		if(err){
@@ -46,7 +50,7 @@ function find(query, collection, callback){
 			out.push(doc);
 		}
 		if(callback){
-			callback(out[0]);
+			callback(out, c);
 		}
 	}, function(){
 		client.close();
