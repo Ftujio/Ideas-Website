@@ -19,7 +19,7 @@ db.connect_to_db();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	
+	res.render('index', {"user": users});
 });
 
 module.exports = router;
