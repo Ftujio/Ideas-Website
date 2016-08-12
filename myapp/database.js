@@ -30,6 +30,8 @@ function insert(data, collection, callback){
 	});
 }
 
+//function update(data, )
+
 function find(query, collection, callback){
 	if(!client){
 		console("Database not initialized!");
