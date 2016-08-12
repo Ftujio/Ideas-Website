@@ -3,9 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.render('register', {"success": req.session.success, "errors": req.session.errors});
-	req.session.errors = null;
-	req.session.success = null;
+	console.log('passing "' + req.session.errors + '" to the ejs file');
+	res.render('register', {success: req.session.success, errors: req.session.errors});
 });
 
 router.post('/submit', function(req, res, next){
@@ -15,6 +14,7 @@ router.post('/submit', function(req, res, next){
 	var errors = req.validationErrors();
 	if(errors){
 		req.session.errors = errors;
+		console.log(req.session.errors);
 		req.session.success = false;
 		res.redirect('/register');
 	} else {

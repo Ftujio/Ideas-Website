@@ -41,9 +41,9 @@
 				<form action="/register/submit" method="post">
 					<p>Register</p>
 
-					<% if(!success){ %>
+					<% if(errors && !success){ %>
 						<% for(var i = 0; i < errors.length; i++){ %>
-							<p><%= errors[i].msg %></p>
+							<p style="color: red"><%= errors[i].msg %></p>
 						<% } %>
 					<% } %>
 					<input id="name" type="text" name="name"><label for="email"> Name</label><br>
