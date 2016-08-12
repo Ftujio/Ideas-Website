@@ -8,6 +8,8 @@ db.connect_to_db();
 router.get('/', function(req, res, next) {
 	console.log('passing "' + req.session.errors + '" to the ejs file');
 	res.render('register', {success: req.session.success, errors: req.session.errors});
+	req.session.errors = null;
+	req.session.success = null;
 });
 
 router.post('/submit', function(req, res, next){
