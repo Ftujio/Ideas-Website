@@ -73,8 +73,12 @@
 			</div>
 
 			<div id="side_pannel">
-				<% for(var i = 0; i < users.length; i++){ %>
-					<p><%= users[i].name + " " + users[i].email %></p>
+				<% if(user.length > 1){ %>
+					<% for(var i = 0; i < user.length; i++){ %>
+						<p><%= user[i].name + " " + user[i].email %></p>
+					<% } %>
+				<% } else { %>
+						<p><%= user.name + " " + user.email %></p>
 				<% } %>
 			</div>
 

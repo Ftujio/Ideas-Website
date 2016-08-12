@@ -19,9 +19,10 @@ db.connect_to_db();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	
-
-	//res.render('index', {"title": "Home"});
+	db.find({"name": "Svetlin Yodanov"}, 'users', function(users){
+		console.log(users[0].name);
+		//res.render('index', {"user": users});
+	});
 });
 
 module.exports = router;
