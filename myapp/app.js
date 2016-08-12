@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(expressSession({secret: "h3lly3aham3r1ka", saveInitialized: false, resave: false}));
+app.use(expressSession({secret: 'h3lly3aham3r1ka', saveUninitialized: false, resave: false}));
 
 app.use('/', routes);
 app.use('/users', users);
