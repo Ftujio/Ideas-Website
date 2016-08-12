@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var db = require('../database');
+
+db.connect_to_db();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,9 +20,18 @@ router.post('/submit', function(req, res, next){
 		console.log(req.session.errors);
 		req.session.success = false;
 		res.redirect('/register');
-	} else {
+	} else { // The information is valid
 		req.session.success = true;
-		console.log(req.body.email);
+		var name = req.body.name;
+		var email = req.body.email;
+		var password = req.body.password;
+		var data = {
+			name: name,
+			email: email,
+			password: password
+		};
+
+		db.insert(data, 'users');
 		res.redirect('/');
 	}
 });
