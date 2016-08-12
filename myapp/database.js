@@ -41,21 +41,21 @@ function find(query, collection, callback){
 	var collection = client.collection(collection);
 	collection.count(function(err, count){
 		c = count;
+		console.log(c);
 	});
 	var element = collection.find(query);
-	element.each(function(err, doc){
+	element.toArray(function (err, result){
 		if(err){
-			console.log('each: ' + err);
-		} else if(doc != null){
-			out.push(doc);
+			console.log('toArray: ' + err);
+		} else if(result.length){
+			if(callback){
+				callback(result, c);
+			}
+		} else {
+			console.log('No documents found');
 		}
-		if(callback){
-			callback(out, c);
-		}
-	}, function(){
 		client.close();
 	});
-
 }
 
 module.exports.connect_to_db = connect_to_db;
