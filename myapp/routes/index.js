@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../database');
+var logged_in;
 
 db.connect_to_db();
 
@@ -19,10 +20,10 @@ db.connect_to_db();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.render('index', {});
 	if(req.session.success){
-		console.log("In session");
+		logged_in = true;
 	}
+	res.render('index', {logged_in: logged_in});
 });
 
 module.exports = router;
