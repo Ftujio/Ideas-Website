@@ -42,7 +42,7 @@
 					<p>Register</p>
 					<% if(messages.length > 0){ %>
 						<% for(var i = 0; i < messages.length; i++){ %>
-							<p><%= messages[i] %></p>
+							<p style="color: red"><%= messages[i] %></p>
 						<% } %>
 					<% } %>
 					<input id="name" type="text" name="name"><label for="email"> Name</label><br>
