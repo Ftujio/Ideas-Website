@@ -10,8 +10,10 @@ router.get('/', function(req, res, next) {
 	res.render('register', {csrfToken: req.csrfToken()});
 });
 
-router.post('/submit', function(req, res, next){
-	res.redirect('/');
-});
+router.post('/submit', passport.authenticate('local.signup', {
+	successRedirect: '/',
+	failureRedirect: '/register',
+	failureFlash: true
+}));
 
 module.exports = router;
