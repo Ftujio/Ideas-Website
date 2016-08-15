@@ -38,10 +38,16 @@
 		<div id="content_wrapper">
 
 			<div id="main_content">
-				<form action="/submit" method="post">
+				<form action="/login/submit" method="post">
 					<p>Login</p>
+					<% if(messages.length > 0){ %>
+						<% for(var i = 0; i < messages.length; i++){ %>
+							<p style="color: red"><%= messages[i] %></p>
+						<% } %>
+					<% } %>
 					<input id="email" type="text" name="email"><label for="email"> Email</label><br>
 					<input id="password" type="password" name="password"><label for="password"> Password</label><br>
+					<input type="hidden" name="_csrf" value="<%= csrfToken %>">
 					<input type="submit" value="Login">
 				</form>
 			</div>
