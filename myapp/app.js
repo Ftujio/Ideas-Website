@@ -8,7 +8,7 @@ var expressValidator = require('express-validator');
 var session = require('express-session');
 var mongoose = require('mongoose');
 
-mongoose.connect('localhost:27017/ideaswebsite')
+mongoose.connect('localhost:27017/ideaswebsite');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');	
