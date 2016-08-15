@@ -11,7 +11,7 @@ var flash = require('connect-flash');
 var validator = require('express-validator');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');	
+var sessionCheck = require('./routes/session-check');	
 var login = require('./routes/login');
 var register = require('./routes/register');
 var browse = require('./routes/browse');
@@ -42,7 +42,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/logout', sessionCheck);
 app.use('/login', login);
 app.use('/register', register);
 app.use('/browse', browse);
