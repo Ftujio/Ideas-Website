@@ -4,9 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
+var session = require('express-session');
+//var mongoose = require('mongoose');
 
-mongoose.connect('localhost:27017/ideaswebsite');
+//mongoose.connect('localhost:27017/ideaswebsite');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');	
@@ -26,6 +27,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({secret: 'secretmessage', resave: false, saveUninitialized: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
