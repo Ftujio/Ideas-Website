@@ -53,3 +53,11 @@ passport.use('local.signup', new LocalStrategy({
 		});
 	});
 }));
+
+password.use('local.signin', new LocalStrategy({
+	usernameField: 'email',
+	passwordField: 'password',
+	passReqToCallback: true
+}, function(req, email, password, done){
+	
+}));
