@@ -8,7 +8,8 @@ router.use(csrfProtection);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.render('register', {csrfToken: req.csrfToken()});
+	var messages = req.flash();
+	res.render('register', {csrfToken: req.csrfToken(), messages: messages});
 });
 
 router.post('/submit', passport.authenticate('local.signup', {
