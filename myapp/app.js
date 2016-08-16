@@ -54,6 +54,8 @@ app.use(function(req, res, next){
 	req.session.cookie.expires = Date(Date.now() + hour*5);
 	req.session.cookie.maxAge = hour*5;
 
+	req.session.uid = req.session.passport.user;
+
 	res.locals.login = req.isAuthenticated();
 	res.locals.session = req.session;
 	next();
