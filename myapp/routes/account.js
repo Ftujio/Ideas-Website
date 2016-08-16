@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
-var Article = require('../models/article')
+var Article = require('../models/article');
 
 var sessionCheck = require('./session-check');
 
@@ -15,8 +15,12 @@ router.get('/', sessionCheck.isLoggedIn, function(req, res, next) {
 		res.locals.user_email = found.email;
 
 		Article.find({author_id: req.session.uid}, function(err, docs){
-			res.locals.posts = docs;
+			if(err){
+				console.log('Find: ' + err);
+			}
 			
+			res.locals.posts = docs;
+
 			res.render('account');
 		});
 	});

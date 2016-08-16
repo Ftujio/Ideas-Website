@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+var User = require('../models/user');
+var Article = require('../models/article');
+
 /*var data = [
 	{
 		name: "Svetlin Yodanov",
@@ -16,7 +19,15 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.render('index');
+	Article.find({}, function(err, docs){
+		if(err){
+			console.log('Find: ' + err);
+		}
+
+		res.locals.posts = docs;
+
+		res.render('index');
+	});
 });
 
 module.exports = router;
