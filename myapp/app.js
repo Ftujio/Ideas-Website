@@ -52,13 +52,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req, res, next){
 	var hour = 3600000;
 
-	req.session.cookie.expires = Date(Date.now() + hour*5);
-	req.session.cookie.maxAge = hour*5;
-
-	req.session.uid = req.session.passport.user;
-
 	res.locals.login = req.isAuthenticated();
-	res.locals.session = req.session;
+	if(req.isAuthenticated()){
+
+		req.session.cookie.expires = Date(Date.now() + hour*5);
+		req.session.cookie.maxAge = hour*5;
+
+		req.session.uid = req.session.passport.user;
+
+		res.locals.session = req.session;
+
+	}
+
 	next();
 });
 
