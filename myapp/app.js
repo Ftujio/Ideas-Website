@@ -9,6 +9,7 @@ var session = require('express-session');
 var passport = require('passport');
 var flash = require('connect-flash');
 var validator = require('express-validator');
+var MongoStore = require('connect-mongo')(session);
 
 var routes = require('./routes/index');
 var sessionCheck = require('./routes/session-check');	
@@ -34,7 +35,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(validator());
 app.use(cookieParser());
 
-app.use(session({secret: 'secretmessage', resave: false, saveUninitialized: false}));
+app.use(session({
+	secret: 'secretmessage',
+	resave: false,
+	saveUninitialized: false,
+	store: new MongoStore({mongooseConnection: mongoose.connection}),
+	cookie: {maxAge: 180*60*1000} // 3 Hours
+}));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
