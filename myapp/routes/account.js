@@ -19,6 +19,9 @@ router.get('/', sessionCheck.isLoggedIn, function(req, res, next) {
 				console.log('Find: ' + err);
 			}
 			
+			for(var i = 0; i < docs.length; i++){
+				docs[i].text = docs[i].text.replace("\n", "<br><br>");
+			}
 			res.locals.posts = docs;
 
 			res.render('account');
