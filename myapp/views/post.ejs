@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include templates/header.ejs %>
+</head>
+
+<body>
+	<div id="page_wrapper">
+		<% include templates/nav.ejs %>
+
+		<div id="content_wrapper">
+
+			<div id="main_content">
+				<p>Make a post</p>
+				<form action="/post/submit" method="post">
+					<label for="post_title">Title </label><input type="text" name="post_title"><br>
+					<label for="post_text">Text </label><textarea name="post_text"></textarea><br>
+					<input type="submit" value="Post">
+				</form>
+			</div>
+
+			<div id="side_pannel">
+				
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

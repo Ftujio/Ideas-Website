@@ -1,17 +1,23 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var Article = require('../models/article')
 
 var sessionCheck = require('./session-check');
 
 router.get('/', sessionCheck.isLoggedIn, function(req, res, next) {
 	User.findById(req.session.uid, function(err, found){
-		var name = found.name;
-		var email = found.email;
+		if(err){
+			console.log('Find: ' + err);
+		}
 
-		res.render('account', {
-			name: name,
-			email: email
+		res.locals.user_name = found.name;
+		res.locals.user_email = found.email;
+
+		Article.find({author_id: req.session.uid}, function(err, docs){
+			res.locals.posts = docs;
+			
+			res.render('account');
 		});
 	});
 });
