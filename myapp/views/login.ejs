@@ -18,10 +18,16 @@
 							<p style="color: red"><%= messages[i] %></p>
 						<% } %>
 					<% } %>
-					<input id="email" type="text" name="email"><label for="email"> Email</label><br>
-					<input id="password" type="password" name="password"><label for="password"> Password</label><br>
+					<div class="input_row">
+						<input id="email" type="text" name="email" autofocus>
+						<label for="email"> Email</label>
+					</div>
+					<div class="input_row">
+						<input id="password" type="password" name="password">
+						<label for="password"> Password</label>
+					</div>
 					<input type="hidden" name="_csrf" value="<%= csrfToken %>">
-					<input type="submit" value="Login">
+					<input type="submit" value="Login" class="submit">
 				</form>
 			</div>
 
