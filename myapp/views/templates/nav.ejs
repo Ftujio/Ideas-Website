@@ -1,0 +1,24 @@
+<nav id="top_nav">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li class="dropdown">
+			<a href="/browse">Browse</a>
+			<div class="dropdown_content">
+				<a href='/browse/games'>Games</a>
+				<a href="/browse/movies">Movies</a>
+				<a href="/browse/books">Books</a>
+				<a href="/browse/uncategorised">Uncategorised</a>
+			</div>
+		</li>
+
+		<span class="right">
+			<% if(!login){ %>
+				<li class="right"><a href="/login">Login</a></li>
+				<li class="right"><a href="/register">Register</a></li>
+			<% } else { %>
+				<li class="right"><a href="/account">Account</a></li>
+				<li class="right"><a href="/logout">Logout</a></li>
+			<% } %>
+		</span>
+	</ul>
+</nav>
