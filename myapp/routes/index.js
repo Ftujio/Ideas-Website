@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
 		}
 
 		for(var i = 0; i < docs.length; i++){
-			docs[i].text = docs[i].text.replace("\n", "<br>");
+			docs[i].text = docs[i].text.replace("\n", "<br><br>");
 		}
 		res.locals.posts = docs;
 
