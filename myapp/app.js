@@ -39,8 +39,7 @@ app.use(session({
 	secret: 'secretmessage',
 	resave: false,
 	saveUninitialized: false,
-	store: new MongoStore({mongooseConnection: mongoose.connection}),
-	cookie: {maxAge: 180*60*1000} // 3 Hours
+	store: new MongoStore({mongooseConnection: mongoose.connection})
 }));
 app.use(flash());
 app.use(passport.initialize());
@@ -49,6 +48,11 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next){
+	var hour = 3600000;
+
+	req.session.cookie.expires = Date(Date.now() + hour*5);
+	req.session.cookie.maxAge = hour*5;
+
 	res.locals.login = req.isAuthenticated();
 	res.locals.session = req.session;
 	next();
