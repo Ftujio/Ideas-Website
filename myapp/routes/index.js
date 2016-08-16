@@ -24,6 +24,9 @@ router.get('/', function(req, res, next) {
 			console.log('Find: ' + err);
 		}
 
+		for(var i = 0; i < docs.length; i++){
+			docs[i].text = docs[i].text.replace("\n", "<br>");
+		}
 		res.locals.posts = docs;
 
 		res.render('index');
