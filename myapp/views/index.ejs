@@ -26,13 +26,15 @@
 
 						<p class="post_text"><%- posts[i].text%></p>
 						
-						<form action="/submit" method="post" class="m">
-							<div class="input_row t">
-								<textarea name="post_text" required></textarea>
-								<label for="post_text">Type a comment </label>
-							</div>
-							<input type="submit" value="Comment" class="submit">
-						</form>
+						<% if(login){ %>
+							<form action="/submit" method="post" class="m">
+								<div class="input_row t">
+									<textarea name="post_text" required></textarea>
+									<label for="post_text">Type a comment </label>
+								</div>
+								<input type="submit" value="Comment" class="submit">
+							</form>
+						<% } %>
 					</article>
 				<% } %>
 			</div>
