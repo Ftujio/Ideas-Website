@@ -4,6 +4,8 @@ var router = express.Router();
 var User = require('../models/user');
 var Article = require('../models/article');
 
+var sessionCheck = require('./session-check');
+
 /*var data = [
 	{
 		name: "Svetlin Yodanov",
@@ -31,6 +33,10 @@ router.get('/', function(req, res, next) {
 
 		res.render('index');
 	});
+});
+
+router.post('/submit', function(req, res){
+	console.log('Comment submition requested');
 });
 
 module.exports = router;
