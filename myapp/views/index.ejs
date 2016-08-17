@@ -17,11 +17,22 @@
 							<img src="images/test_avatar.png" class="post_img_avatar">
 							<div class="post_title_wrap">
 								<h1 class="post_title"><%= posts[i].title %></h1>
-								<div class="post_author"><p>- <%= posts[i].author %> on <%= posts[i].date.getDate() + "." +  (posts[i].date.getMonth() + 1) + "." + (posts[i].date.getYear() + 1900)%><p></div>
+								<div class="post_author">
+									<p>- <%= posts[i].author %> on <%= posts[i].date.getDate() + "." +  (posts[i].date.getMonth() + 1) + "." + (posts[i].date.getYear() + 1900)%>
+									</p>
+								</div>
 							</div>
 						</div>
 
 						<p class="post_text"><%- posts[i].text%></p>
+						
+						<form action="/submit" method="post" class="m">
+							<div class="input_row t">
+								<textarea name="post_text" required></textarea>
+								<label for="post_text">Type a comment </label>
+							</div>
+							<input type="submit" value="Comment" class="submit">
+						</form>
 					</article>
 				<% } %>
 			</div>

@@ -25,6 +25,8 @@
 	display: block;
 	margin-bottom: 20px;
 	word-wrap: break-word;
+	border-bottom: 1px solid lightgray;
+	padding-bottom: 15px;
 }
 .post_text{
 	display: block;
@@ -86,4 +88,8 @@
 .top{
 	vertical-align: top;
 	font-size: 12px;
+}
+
+.m{
+	margin-top: 15px;
 }
