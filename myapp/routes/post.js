@@ -27,6 +27,7 @@ router.post('/submit', function(req, res, next){
 			if(err){
 				console.log('Database save: ' + err);
 			}
+			console.log('Post: User ' + found.name + ' is submitting a post');
 		});
 
 		res.redirect('/post');

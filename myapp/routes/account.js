@@ -21,8 +21,8 @@ router.get('/', sessionCheck.isLoggedIn, function(req, res, next) {
 			
 			for(var i = 0; i < docs.length; i++){
 				docs[i].text = docs[i].text.replace(/\n/g, '<p class="post_text">');
-				docs[i].text = docs[i].text.replace(/<t/g, '<h1 class="post_small_heading">');
-				docs[i].text = docs[i].text.replace(/t>/g, '</h1>');
+				docs[i].text = docs[i].text.replace(/#t/g, '<h1 class="post_small_heading">');
+				docs[i].text = docs[i].text.replace(/t#/g, '</h1>');
 			}
 			res.locals.posts = docs;
 

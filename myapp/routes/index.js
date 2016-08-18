@@ -28,8 +28,8 @@ router.get('/', function(req, res, next) {
 
 		for(var i = 0; i < docs.length; i++){
 			docs[i].text = docs[i].text.replace(/\n/g, '<p class="post_text">');
-			docs[i].text = docs[i].text.replace(/<t/g, '<h1 class="post_small_heading">');
-			docs[i].text = docs[i].text.replace(/t>/g, '</h1>');
+			docs[i].text = docs[i].text.replace(/#t/g, '<h1 class="post_small_heading">');
+			docs[i].text = docs[i].text.replace(/t#/g, '</h1>');
 		}
 		res.locals.posts = docs;
 
@@ -37,8 +37,8 @@ router.get('/', function(req, res, next) {
 	});
 });
 
-router.post('/submit', function(req, res){
-	var post_id = req.body.postId;
+router.post('/submit/comment/:postId', function(req, res){
+	var post_id = req.params.postId;
 	console.log('Comment: Comment submition requested for article with id ' + post_id);
 	User.findById(req.session.uid, function(err, doc){
 		Article.findByIdAndUpdate(post_id,
@@ -59,6 +59,11 @@ router.post('/submit', function(req, res){
 			}
 		);
 	});
+});
+
+router.post('/submit/vote/post/:pid', function(req, res){
+	var post_id = req.params.pid;
+	console.log('user voted for post with id ' + post_id);
 });
 
 module.exports = router;

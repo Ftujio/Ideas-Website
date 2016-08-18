@@ -35,3 +35,7 @@ textarea{
 	height: 98px;
 	resize: none;
 }
+
+.vote{
+	display: inline-block;
+}
