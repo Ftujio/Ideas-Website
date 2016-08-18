@@ -27,8 +27,8 @@
 
 		<% if(login){ %>
 			<form action="/submit/vote/post/<%= posts[i]._id %>" method="post" class="vote_section">
-				<input type="submit" value="Upvote" class="submit vote">
-				<input type="submit" value="Downvote" class="submit vote">
+				<input type="submit" value="Upvote" class="submit vote" name="submit">
+				<input type="submit" value="Downvote" class="submit vote" name="submit">
 			</form>
 
 			<form action="/submit/comment/<%= posts[i]._id %>" method="post" class="m">
