@@ -7,7 +7,8 @@ var articleSchema = new Schema({
 	author: {type: String, required: true},
 	author_id: {type: String, required: true},
 	date: {type: Date, require: true},
-	likes: {type: Number, default: 0},
+	likes: {type: Number},
+	u_liked: [Schema.ObjectId],
 	comments: [
 		{
 			text: String,

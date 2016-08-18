@@ -63,17 +63,26 @@ router.post('/submit/comment/:postId', function(req, res){
 
 router.post('/submit/vote/post/:pid', function(req, res){
 	var post_id = req.params.pid;
-	console.log('user voted for post with id ' + post_id);
+	console.log('Vote: User voted for post with id ' + post_id);
 	var action = req.body.submit;
 
 	if(action == 'Upvote'){
-		console.log('User ' + req.session.uid + ' upvoted post with id ' + post_id);
-		User.findById(req.session.uid, function(err, doc){
-			Article.findByIdAndUpdate(post_id, {$inc: {likes: 1}});
+		console.log('Vote: User ' + req.session.uid + ' upvoted post with id ' + post_id);
+		Article.findByIdAndUpdate(post_id, {$inc: {likes: 1}}, function(err, res){
+			if(err){
+				console.log('Error: ' + err);
+			}
 		});
 	} else if(action == 'Downvote'){
-		console.log('User ' + req.session.uid + ' downvoted post with id ' + post_id);
+		console.log('Vote: User ' + req.session.uid + ' downvoted post with id ' + post_id);
+		Article.findByIdAndUpdate(post_id, {$inc: {likes: -1}}, function(err, res){
+			if(err){
+				console.log('Error: ' + err);
+			}
+		});
 	}
+
+	res.redirect('/');
 });
 
 module.exports = router;
