@@ -22,6 +22,7 @@ router.post('/submit', function(req, res, next){
 		article.author = found.name;
 		article.author_id = req.session.uid;
 		article.date = new Date();
+		
 		article.save(function(err, result){
 			if(err){
 				console.log('Database save: ' + err);

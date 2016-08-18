@@ -27,7 +27,7 @@ router.get('/', function(req, res, next) {
 		}
 
 		for(var i = 0; i < docs.length; i++){
-			docs[i].text = docs[i].text.replace("\n", "<br><br>");
+			docs[i].text = docs[i].text.replace(/\\n/g, "<br><br>");
 		}
 		res.locals.posts = docs;
 
@@ -36,7 +36,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/submit', function(req, res){
-	console.log('Comment submition requested');
+	console.log('Comment: Comment submition requested for article with post id ' + req.body.postId);
 });
 
 module.exports = router;

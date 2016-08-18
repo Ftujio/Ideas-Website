@@ -54,14 +54,12 @@ app.use(function(req, res, next){
 
 	res.locals.login = req.isAuthenticated();
 	if(req.isAuthenticated()){
-
 		req.session.cookie.expires = Date(Date.now() + hour*5);
 		req.session.cookie.maxAge = hour*5;
 
 		req.session.uid = req.session.passport.user;
 
 		res.locals.session = req.session;
-
 	}
 
 	next();
