@@ -6,7 +6,14 @@ var articleSchema = new Schema({
 	text: {type: String, required: true},
 	author: {type: String, required: true},
 	author_id: {type: String, required: true},
-	date: {type: Date, require: true}
+	date: {type: Date, require: true},
+	comments: [
+		{
+			text: String,
+			author: String,
+			date: Date
+		}
+	]
 });
 
 module.exports = mongoose.model('Article', articleSchema);

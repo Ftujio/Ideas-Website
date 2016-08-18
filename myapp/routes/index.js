@@ -36,7 +36,27 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/submit', function(req, res){
-	console.log('Comment: Comment submition requested for article with post id ' + req.body.postId);
+	var post_id = req.body.postId;
+	console.log('Comment: Comment submition requested for article with id ' + post_id);
+	User.findById(req.session.uid, function(err, doc){
+		Article.findByIdAndUpdate(post_id,
+			{$push: {"comments": 
+				{
+					text: req.body.comment_text,
+					author: doc.name,
+					date: new Date()
+				}
+			}},
+			{safe: true, upsert: true},
+			function(err, model){
+				if(err){
+					console.log('Find: ' + err);
+				}
+
+				res.redirect('/');
+			}
+		);
+	});
 });
 
 module.exports = router;
