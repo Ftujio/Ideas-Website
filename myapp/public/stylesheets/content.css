@@ -30,7 +30,7 @@
 }
 .post_text{
 	display: block;
-	margin: 5px 0px;
+	margin: 15px 0px;
 	text-indent: 30px;
 }
 .post_small_heading{
@@ -59,7 +59,7 @@
 .post_title{
 	display: block;
 	width: 100%;
-	font-size: 40px;
+	font-size: 45px;
 	line-height: 0.8;
 	height: 50%;
 	margin-left: 5px;

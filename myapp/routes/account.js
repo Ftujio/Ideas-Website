@@ -20,7 +20,7 @@ router.get('/', sessionCheck.isLoggedIn, function(req, res, next) {
 			}
 			
 			for(var i = 0; i < docs.length; i++){
-				docs[i].text = docs[i].text.replace("\n", "<br><br>");
+				docs[i].text = docs[i].text.replace(/\n/g, '<br><br><p class="post_text">');
 			}
 			res.locals.posts = docs;
 
