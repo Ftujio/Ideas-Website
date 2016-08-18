@@ -65,19 +65,42 @@ router.post('/submit/vote/post/:pid', function(req, res){
 	var post_id = req.params.pid;
 	console.log('Vote: User voted for post with id ' + post_id);
 	var action = req.body.submit;
+	var liked = false;
 
 	if(action == 'Upvote'){
 		console.log('Vote: User ' + req.session.uid + ' upvoted post with id ' + post_id);
-		Article.findByIdAndUpdate(post_id, {$inc: {likes: 1}}, function(err, res){
+		Article.findById(post_id, function(err, doc){
 			if(err){
 				console.log('Error: ' + err);
+			}
+			
+			for(var i = 0; i < doc.length; i++){
+				if(doc[i] == req.session.uid){
+					liked = true;
+				}
+			}
+
+			if(!liked){
+				doc.likes += 1;
+				doc.u_liked.push(req.session.uid);
 			}
 		});
 	} else if(action == 'Downvote'){
 		console.log('Vote: User ' + req.session.uid + ' downvoted post with id ' + post_id);
-		Article.findByIdAndUpdate(post_id, {$inc: {likes: -1}}, function(err, res){
+		Article.findById(post_id, function(err, doc){
 			if(err){
 				console.log('Error: ' + err);
+			}
+			
+			for(var i = 0; i < doc.length; i++){
+				if(doc[i] == req.session.uid){
+					liked = true;
+				}
+			}
+
+			if(liked){
+				doc.likes -= 1;
+				doc.u_liked.push(req.session.uid);
 			}
 		});
 	}
