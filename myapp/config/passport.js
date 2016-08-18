@@ -22,7 +22,7 @@ passport.use('local.signup', new LocalStrategy({
 	req.checkBody('password', 'Password must be at least 4 characters long').notEmpty().isLength({min: 4});
 	
 	var errors = req.validationErrors();
-	console.log('Register: User is requesting for resgister');
+	console.log('Register: Request for resgistration');
 
 	if(errors){
 		var messages = [];
@@ -41,7 +41,7 @@ passport.use('local.signup', new LocalStrategy({
 			return done(err);
 		}
 		if(user){ // User already exists
-			console.log('Register: User tied to submit invalid info');
+			console.log('Register: User tried to submit existing email');
 			return done(null, false, {message: 'Email is already in use.'});
 		}
 
@@ -69,6 +69,7 @@ passport.use('local.signin', new LocalStrategy({
 	req.checkBody('password', 'Password must be at least 4 characters long').notEmpty();
 	
 	var errors = req.validationErrors();
+	console.log('Login: Request for login');
 
 	if(errors){
 		var messages = [];
@@ -76,6 +77,8 @@ passport.use('local.signin', new LocalStrategy({
 		errors.forEach(function(error){
 			messages.push(error.msg);
 		});
+
+		console.log('Login: User submited invalid information');
 
 		return done(null, false, req.flash('error', messages));
 	}
