@@ -11,13 +11,15 @@
 			</div>
 		</div>
 
-		<p class="post_text"><%- posts[i].text%></p>
+		<p class="post_text"><%- posts[i].text %></p>
 		<div class="comment_section" style="border-top: 1px solid lightgray; margin-top: 10px;">
-			<p>Comments</p>
+			<p style="margin-bottom: 10px;">Comments</p>
 			<% for(var j = 0; j < posts[i].comments.length; j++){ %>
-				<p>- <%= posts[i].comments[j].author %> on <%= posts[i].comments[j].date.getDate() + "." +  (posts[i].comments[j].date.getMonth() + 1) + "." + (posts[i].comments[j].date.getYear() + 1900) %>
-				</p>
-				<p><%= posts[i].comments[j].text %></p>
+				<div class="comment_wrapper" style="margin: 5px 15px">
+					<p>- <%= posts[i].comments[j].author %> on <%= posts[i].comments[j].date.getDate() + "." +  (posts[i].comments[j].date.getMonth() + 1) + "." + (posts[i].comments[j].date.getYear() + 1900) %>
+					</p>
+					<p><%= posts[i].comments[j].text %></p>
+				</div>
 			<% } %>
 		</div>
 
