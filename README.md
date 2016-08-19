@@ -19,5 +19,5 @@ Installation:
     - check if everything is working `/etc/init.d/mongodb status`
     - for configuration `sudo <text editor> /etc/mongodb.conf`
   
-   - Node.js
-     - [Node.js installation documentation](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
+  - Node.js
+    - [Node.js installation documentation](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
