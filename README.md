@@ -15,9 +15,9 @@ Installation:
   After cloning the project onto your computer, you need to download these:
   - Mongodb: 
     - [Mongodb installation documentation](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition)
-    - `sudo service mongodb status` - see the database status
-    - Check if everything is working `/etc/init.d/mongodb status`
-    - `sudo <text editor> /etc/mongodb.conf` - for configuration
+    - to see the database status `sudo service mongodb status`
+    - check if everything is working `/etc/init.d/mongodb status`
+    - for configuration `sudo <text editor> /etc/mongodb.conf`
   
    - Node.js
      - [Node.js installation documentation](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
