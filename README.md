@@ -21,3 +21,6 @@ Installation:
   
   - Node.js
     - [Node.js installation documentation](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
+
+How to use the website:
+ See this [video]()
