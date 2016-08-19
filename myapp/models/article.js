@@ -9,6 +9,7 @@ var articleSchema = new Schema({
 	date: {type: Date, require: true},
 	likes: {type: Number},
 	u_liked: [Schema.ObjectId],
+	U_disliked: [Schema.ObjectId],
 	comments: [
 		{
 			text: String,

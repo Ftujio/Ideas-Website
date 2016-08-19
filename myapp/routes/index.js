@@ -63,9 +63,9 @@ router.post('/submit/comment/:postId', function(req, res){
 
 router.post('/submit/vote/post/:pid', function(req, res){
 	var post_id = req.params.pid;
-	console.log('Vote: User voted for post with id ' + post_id);
 	var action = req.body.submit;
 	var liked = false;
+	var disliked = false;
 
 	if(action == 'Upvote'){
 		console.log('Vote: User ' + req.session.uid + ' upvoted post with id ' + post_id);
@@ -74,15 +74,18 @@ router.post('/submit/vote/post/:pid', function(req, res){
 				console.log('Error: ' + err);
 			}
 			
-			for(var i = 0; i < doc.length; i++){
-				if(doc[i] == req.session.uid){
+			for(var i = 0; i < doc.u_liked.length; i++){
+				if(doc.u_liked[i] == req.session.uid){
+					console.log('here');
 					liked = true;
 				}
 			}
 
 			if(!liked){
 				doc.likes += 1;
+				console.log(doc.likes);
 				doc.u_liked.push(req.session.uid);
+				doc.save();
 			}
 		});
 	} else if(action == 'Downvote'){
@@ -92,15 +95,18 @@ router.post('/submit/vote/post/:pid', function(req, res){
 				console.log('Error: ' + err);
 			}
 			
-			for(var i = 0; i < doc.length; i++){
-				if(doc[i] == req.session.uid){
-					liked = true;
+			for(var i = 0; i < doc.u_liked.length; i++){
+				if(doc.u_dis_liked[i] == req.session.uid){
+					console.log('here');
+					disliked = true;
 				}
 			}
 
-			if(liked){
+			if(!disliked){
 				doc.likes -= 1;
-				doc.u_liked.push(req.session.uid);
+				disliked = true;
+				delete doc.u_liked[i]
+				doc.save();
 			}
 		});
 	}

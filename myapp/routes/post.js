@@ -23,6 +23,8 @@ router.post('/submit', function(req, res, next){
 		article.author_id = req.session.uid;
 		article.date = new Date();
 		article.likes = 0;
+		article.u_liked = [];
+		article.u_disliked = [];
 		
 		article.save(function(err, result){
 			if(err){
