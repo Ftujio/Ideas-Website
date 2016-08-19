@@ -14,13 +14,13 @@
 		<p class="post_text"><%- posts[i].text %></p>
 		<div class="comment_section">
 			<% if(posts[i].comments.length){ %>
-				<p class="p">Comments</p>
+				<p class="p">Comments:</p>
 			<% } %>
 			<% for(var j = 0; j < posts[i].comments.length; j++){ %>
 				<div class="comment_wrapper">
-					<p>- <%= posts[i].comments[j].author %> on <%= posts[i].comments[j].date.getDate() + "." +  (posts[i].comments[j].date.getMonth() + 1) + "." + (posts[i].comments[j].date.getYear() + 1900) %>
+					<p class="comment_author">- <%= posts[i].comments[j].author %> on <%= posts[i].comments[j].date.getDate() + "." +  (posts[i].comments[j].date.getMonth() + 1) + "." + (posts[i].comments[j].date.getYear() + 1900) %>
 					</p>
-					<p><%= posts[i].comments[j].text %></p>
+					<p class="comment_text"><%= posts[i].comments[j].text %></p>
 				</div>
 			<% } %>
 		</div>

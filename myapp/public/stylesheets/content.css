@@ -1,26 +1,16 @@
 #main_content{
 	margin: 10px 0px;
-	display: inline-block;
+	display: block;
 	min-height: 800px;
 	background-color: #f2f2f2;
 	padding: 10px;
-	box-shadow: 5px 5px 3px #cccccc;
-	width: 80%;
-}
-#side_pannel{
-	display: inline-block;
-	flex: 1;
-	margin: 10px 0px;
-	margin-left: 10px;
-	padding: 10px;
-	min-height: 800px;
-	background-color: #f2f2f2;
 	box-shadow: 5px 5px 3px #cccccc;
 }
 #content_wrapper{
-	display: flex;
+	
 }
 
+/*Article*/
 .post{
 	display: block;
 	margin-bottom: 20px;
@@ -71,17 +61,32 @@
 	font-size: 19px;
 	font-style: italic;
 }
+/*########*/
 
+/*Comments*/
 .comment_section{
 	border-top: 1px solid lightgray;
+	border-bottom: 1px solid lightgray;
 	margin-top: 10px;
+	padding-bottom: 5px;
 }
 .p{
-	margin-bottom: 10px;
+	margin-bottom: 3px;
+	font-style: italic;
 }
 .comment_wrapper{
-	margin: 5px 15px;
+	margin-left: 15px;
+	margin-bottom: 5px;
 }
+.comment_author{
+	font-style: italic;
+	font-size: 20px;
+}
+.comment_text{
+	margin-left: 20px;
+	font-size: 24px;
+}
+/*########*/
 
 .vote_section{
 	margin-top: 15px;
