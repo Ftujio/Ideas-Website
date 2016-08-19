@@ -6,7 +6,7 @@ A website where you can submit your ideas for movies, books, games etc. and get 
 - Back-end:
   - [Node.js](https://nodejs.org/en/)
   - [Express](http://expressjs.com/)
-  - [Mongodb](https://www.mongodb.com/)
+- Server: [Mongodb](https://www.mongodb.com/)
 - Front-end:
   - HTML
   - CSS
