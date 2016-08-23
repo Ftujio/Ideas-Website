@@ -6,7 +6,6 @@ var userSchema = new Schema({
 	email: {type: String, required: true},
 	password: {type: String, required: true},
 	name: {type: String, required: true},
-	reputation: {type: Number, default: 100}
 });
 
 userSchema.methods.encryptPassword = function(password){
