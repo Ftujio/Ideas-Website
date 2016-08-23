@@ -41,8 +41,8 @@ router.post('/submit/comment/:postId', function(req, res){
 	var post_id = req.params.postId;
 	console.log('Comment: Comment submition requested for article with id ' + post_id);
 	User.findById(req.session.uid, function(err, doc){
-		Article.findByIdAndUpdate(post_id,
-			{$push: {"comments": 
+		/*Article.findByIdAndUpdate(post_id,
+			{$push: {"comments":
 				{
 					text: req.body.comment_text,
 					date: new Date()
@@ -56,7 +56,23 @@ router.post('/submit/comment/:postId', function(req, res){
 
 				res.redirect('/');
 			}
-		);
+		);*/
+		Article.findById(post_id, function(err, document){
+			var comment = {
+				text: req.body.comment_text,
+				author: doc.name,
+				date: new Date()
+			}
+			document.comments.push(comment);
+			document.save(function(err, result){
+				if(err){
+					console.log("Comment save: " + err)
+				}
+
+				console.log('User ' + doc.name + ' commented on article with id ' + post_id);
+				res.redirect('/');
+			});
+		});
 	});
 });
 
