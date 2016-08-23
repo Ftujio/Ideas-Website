@@ -45,7 +45,6 @@ router.post('/submit/comment/:postId', function(req, res){
 			{$push: {"comments": 
 				{
 					text: req.body.comment_text,
-					author: doc.name,
 					date: new Date()
 				}
 			}},

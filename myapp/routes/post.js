@@ -23,6 +23,7 @@ router.post('/submit', function(req, res, next){
 		article.author_id = req.session.uid;
 		article.date = new Date();
 		article.score = 0;
+		article.status = req.body.status;
 		
 		article.save(function(err, result){
 			if(err){

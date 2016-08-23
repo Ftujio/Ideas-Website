@@ -8,6 +8,7 @@ var articleSchema = new Schema({
 	author_id: {type: String, required: true},
 	date: {type: Date, require: true},
 	score: {type: Number},
+	status: String,
 	comments: [
 		{
 			text: String,
