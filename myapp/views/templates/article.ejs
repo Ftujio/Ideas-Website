@@ -33,6 +33,7 @@
 			</form>
 
 			<form action="/submit/comment/<%= posts[i]._id %>" method="post" class="m">
+				<p style="color: red"><%= post_err %></p>
 				<div class="input_row t">
 					<textarea name="comment_text" required></textarea>
 					<label for="comment_text">Type a comment</label>

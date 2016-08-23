@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
+var assert = require('assert');
 
 var User = require('../models/user');
 var Article = require('../models/article');
 
 var sessionCheck = require('./session-check');
+
+var t;
 
 /*var data = [
 	{
@@ -35,11 +38,14 @@ router.get('/', function(req, res, next) {
 
 		res.render('index');
 	});
+
+	res.locals.post_err = 'a';
 });
 
 router.post('/submit/comment/:postId', function(req, res){
 	var post_id = req.params.postId;
 	console.log('Comment: Comment submition requested for article with id ' + post_id);
+
 	User.findById(req.session.uid, function(err, doc){
 		/*Article.findByIdAndUpdate(post_id,
 			{$push: {"comments":
@@ -60,17 +66,30 @@ router.post('/submit/comment/:postId', function(req, res){
 		Article.findById(post_id, function(err, document){
 			var comment = {
 				text: req.body.comment_text,
-				author: doc.name,
+				//author: doc.name,
 				date: new Date()
-			}
-			document.comments.push(comment);
-			document.save(function(err, result){
-				if(err){
-					console.log("Comment save: " + err)
-				}
+			};
 
-				console.log('User ' + doc.name + ' commented on article with id ' + post_id);
-				res.redirect('/');
+			document.comments.push(comment);
+			document.save(function(error){
+				/*if(error){
+					console.log('##########################################');
+					assert.equal(error.errors['author'].message, 'Missing author');
+					error = comment.validateSync();
+					assert.equal(error.errors['author'].message, 'Missing author');
+					//error.errors['author'].message = 'Missing author';
+					console.log(error.errors['author'].message);
+				}*/
+
+				if(comment.author == undefined){
+					console.log('Missing author');
+					res.locals.post_err = 'Missing author';
+					res.send('Missing author');
+					console.log(res.locals.post_err);
+				} else {
+					console.log('User ' + doc.name + ' commented on article with id ' + post_id);
+					res.redirect('/');
+				}
 			});
 		});
 	});

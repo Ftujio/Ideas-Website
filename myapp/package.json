@@ -17,6 +17,7 @@
     "express": "~4.13.4",
     "express-session": "^1.14.0",
     "express-validator": "^2.20.8",
+    "mockgoose": "^6.0.6",
     "mongoose": "^4.5.9",
     "morgan": "~1.7.0",
     "passport": "^0.3.2",
