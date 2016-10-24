@@ -6,8 +6,9 @@ var User = require('../models/user');
 var Article = require('../models/article');
 
 var sessionCheck = require('./session-check');
+var app = require('../app');
 
-var t;
+
 
 /*var data = [
 	{
@@ -24,6 +25,8 @@ var t;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+	res.locals.post_err = req.app.locals.post_err;
+
 	Article.find({}, function(err, docs){
 		if(err){
 			console.log('Find: ' + err);
@@ -38,8 +41,6 @@ router.get('/', function(req, res, next) {
 
 		res.render('index');
 	});
-
-	res.locals.post_err = 'a';
 });
 
 router.post('/submit/comment/:postId', function(req, res){
@@ -71,25 +72,14 @@ router.post('/submit/comment/:postId', function(req, res){
 			};
 
 			document.comments.push(comment);
-			document.save(function(error){
-				/*if(error){
-					console.log('##########################################');
-					assert.equal(error.errors['author'].message, 'Missing author');
-					error = comment.validateSync();
-					assert.equal(error.errors['author'].message, 'Missing author');
-					//error.errors['author'].message = 'Missing author';
-					console.log(error.errors['author'].message);
-				}*/
 
-				if(comment.author == undefined){
-					console.log('Missing author');
-					res.locals.post_err = 'Missing author';
-					res.send('Missing author');
-					console.log(res.locals.post_err);
-				} else {
-					console.log('User ' + doc.name + ' commented on article with id ' + post_id);
-					res.redirect('/');
+			document.save(function(error){
+				if(error){
+					console.log('Document save: ' + error);
+					req.app.locals.post_err = error;
 				}
+
+				res.redirect('/');
 			});
 		});
 	});
