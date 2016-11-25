@@ -67,7 +67,7 @@ router.post('/submit/comment/:postId', function(req, res){
 		Article.findById(post_id, function(err, document){
 			var comment = {
 				text: req.body.comment_text,
-				//author: doc.name,
+				author: doc.name,
 				date: new Date()
 			};
 
